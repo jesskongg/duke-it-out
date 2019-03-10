@@ -31,7 +31,7 @@ class App extends Component {
         <Route path="/create" component={CreateRoom}/>
         <Route path="/room/:roomId" component={ChatRoom}/>
         { this.props.loginStatus ?
-          null :
+          <Route exact path="/" component={CreateRoom}/> :
           <AuthModal />
         }
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { HOST_STRING } from '../helper/api-config';
+import CreateRoom from "./CreateRoom";
+import {connect} from "react-redux";
 
 class BrowseRoom extends Component {
   constructor(props){
@@ -37,6 +39,7 @@ class BrowseRoom extends Component {
       borderTopRightRadius: "0"
     };
     return (
+      <div>
       <div className="container-body" style={{overflowY: "hidden"}}>
         <div className= "d-flex flex-column h-100">
           { createNavBar }
@@ -63,34 +66,43 @@ class BrowseRoom extends Component {
           </div>
           </div>
         </div>
+      </div>
     );
   }
 }
 
 const createNavBar = (
-  <div className="d-flex jumbotron justify-content-between align-items-center mb-0 flex-shrink-0 flex-row-reverse py-2 px-3">
-    <div className="dropdown mx-2 my-2">
-      <button className="btn btn-outline-secondary dropdown-toggle float-right" data-display="static" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        Filter
-      </button>
-      <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <button className="dropdown-item" type="button">None</button>
-        <button className="dropdown-item" type="button">Basketball</button>
-        <button className="dropdown-item" type="button">Soccer</button>
-        <button className="dropdown-item" type="button">Football</button>
-        <button className="dropdown-item" type="button">E-Sports</button>
-        <button className="dropdown-item" type="button">Baseball</button>
-        <button className="dropdown-item" type="button">Boxing</button>
-        <button className="dropdown-item" type="button">Hockey</button>
-        <button className="dropdown-item" type="button">UFC</button>
-      </div>
-    </div>
+  <div className="d-flex jumbotron justify-content-between align-items-center mb-0 flex-shrink-0 flex-row py-2 px-3">
     <form onSubmit={event => event.preventDefault()} className="form-inline mx-2 my-2 my-lg-0" style={{flexWrap: "nowrap"}}>
+      <div className="dropdown mr-2 my-2">
+        <button className="btn btn-outline-secondary dropdown-toggle float-right" data-display="static" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Filter
+        </button>
+        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <button className="dropdown-item" type="button">None</button>
+          <button className="dropdown-item" type="button">Basketball</button>
+          <button className="dropdown-item" type="button">Soccer</button>
+          <button className="dropdown-item" type="button">Football</button>
+          <button className="dropdown-item" type="button">E-Sports</button>
+          <button className="dropdown-item" type="button">Baseball</button>
+          <button className="dropdown-item" type="button">Boxing</button>
+          <button className="dropdown-item" type="button">Hockey</button>
+          <button className="dropdown-item" type="button">UFC</button>
+        </div>
+      </div>
       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <button type="button" className="btn btn-info" data-toggle="modal" data-target="#createModal">Create</button>
   </div>
 );
 
-export default BrowseRoom;
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfo,
+    isLoggedIn: state.isloggedIn
+  }
+};
+
+export default connect(mapStateToProps, null)(BrowseRoom);

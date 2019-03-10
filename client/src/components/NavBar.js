@@ -19,17 +19,6 @@ const NavBar = (props) => {
                   <li className="nav-item">
                       <Link className="nav-link" to="/">Home</Link>
                   </li>
-                {props.isLoggedIn ?
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/create">Create</Link>
-                  </li> :
-                  <li className="nav-item">
-                    <a className="nav-link disabled">Create</a>
-                  </li>
-                }
-                  {/*<li className="nav-item">*/}
-                      {/*<Link className="nav-link" to="/room">Room</Link>*/}
-                  {/*</li>*/}
               </ul>
               {props.isLoggedIn ? 
                 <ul className="navbar-nav">
