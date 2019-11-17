@@ -1,13 +1,13 @@
 # Duke it Out
 
-A messaging platform that allows rival sports fans on differing teams to argue in a fun way. Created for nwHacks 2019. Built with React, Redux, Node, Express, SocketIO and MySQL. Deployed on Microsoft Azure until the end of April 2019 (http://duke-it-out.azurewebsites.net/).
+A messaging platform that allows rival sports fans on differing teams to argue in a fun way. This was created for nwHacks 2019. Built with React, Redux, Node, Express, SocketIO and MySQL. Deployed on Microsoft Azure until the end of April 2019 (http://duke-it-out.azurewebsites.net/).
 
 ## Project Details
 * User is able to sign up for an account, and login and logout.
 * The main page allows users to browse through available chat rooms.
 * Once the user is in a chat, they are able to see messages.
 * If the user is logged in, they have the option to join a team within their chat.
-* Once the user joins a team, their team appears on the left side of the screen and they can send messages for their team
+* Once the user joins a team, their team appears on the left side of the screen and they can send messages to their team
 * Conversely, the opposite team appears on the right side of the screen.
 
 ## Screen Shots
